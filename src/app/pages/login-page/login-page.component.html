@@ -11,11 +11,25 @@
     </label>
     <label for="" class="tt-control-label mb32">
         Пароль
-        <input type="password"
-        formControlName="password"
-         class="tt-input" placeholder="Введите пароль" name="" id="password">
+        <div class="password-input">   
+        <input 
+            [type]="isPasswordVisible() ? 'text' : 'password'"
+            formControlName="password"
+            class="tt-input" 
+            placeholder="Введите пароль" 
+            name="" id="password">
+
+        <button 
+            class="password-eye-btn"
+            [class.active]="isPasswordVisible()"
+            (click)="isPasswordVisible.set(!isPasswordVisible())" 
+        >
+            <img src="Content.svg" alt="" class="logo-new">
+        </button>
+        </div>
     </label>
+   
     <button class="btn btn-shadow" type="submit"> Войти </button>
 </form>
 
-<img src="/img.jpg" alt="logo" class="tt-img">
+<img src="/Content.png" alt="logo" class="tt-img">
