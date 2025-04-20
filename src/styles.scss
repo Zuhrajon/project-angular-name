@@ -8,6 +8,7 @@
     --primary-color: #AE7AFF;
     --gray-color: #5F646D;
     --dark-hover-color: #161616;
+    --light-transparent-color: rgba(255,255,255, 0.75);
 }
 
 *,
@@ -72,6 +73,13 @@ body {
     font-weight: 800;
 }
 
+.h4 {
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 32px;
+}
+
 .h6 {
     font-style: 18px;
     line-height: 24px;
@@ -106,6 +114,37 @@ body {
     color: var(--light-color);
 }
 
+.tt-form-label {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+   
+}
+
+.tt-form-label__text {
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 16px;
+    color: var(--light-transparent-color);
+}
+
+.tt-form-input {
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 21px;
+    border: none;
+    background: none;
+    border-bottom: 1px solid var(--light-color);
+    height: 33px;
+    color: var(--light-color);
+
+    &:focus-visible {
+        outline: 1px solid var(--primary-color);
+    }
+}
+
 .tt-img {
     width: 400px;
     height: 400px;
@@ -118,4 +157,16 @@ body {
     font-size: 12px;
     font-weight: 500;
     line-height: 20px;
+}
+
+.regular{
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+}
+
+.tt-textarea {
+    height: 84px;
+    resize: none;
 }
