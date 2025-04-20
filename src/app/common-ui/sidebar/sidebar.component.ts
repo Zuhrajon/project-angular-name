@@ -5,6 +5,7 @@ import { SubscriberCardComponent } from "./subscriber-card/subscriber-card.compo
 import { ImgUrlPipe } from '../../helpers/pipes/img-url.pipe';
 import { RouterLink } from '@angular/router';
 import { ProfileService } from '../../data/services/profile.service';
+import { firstValueFrom } from 'rxjs';
 
 @Component({
   selector: 'app-sidebar',
@@ -26,7 +27,7 @@ export class SidebarComponent {
     {
       label: 'Моя страница',
       icon: 'home',
-      link: 'profile/me'
+      link: ''
     },
     {
       label: 'Чаты',
@@ -39,4 +40,9 @@ export class SidebarComponent {
       link: 'search'
     }
   ]
+
+  ngOnInit() {
+    firstValueFrom( this.profileService.getMe())
+  }
+
 }
