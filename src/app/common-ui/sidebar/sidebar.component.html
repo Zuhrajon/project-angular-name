@@ -1,16 +1,23 @@
-
-<img src="Logo-small.png" 
-    alt=""
-    class="ml16 mb20"
->
+<img src="Logo-small.png" alt="" class="ml16 mb20">
 
 <nav>
     <ul class="main-menu-list">
-        <li>
+        <li *ngFor="let menuItem of menuItems">
             <button class="menu-item">
-                <svg icon="chat" class="icon"></svg>
-                <span>Моя страница</span>
+                <svg [icon]="menuItem.icon" class="icon"></svg>
+                <span>{{ menuItem.label }}</span>
             </button>
         </li>
     </ul>
 </nav>
+
+<p class="medium-text mb20"> Подписчики </p>
+
+<pre>{{subscribers$ | async | json}}</pre>
+
+<!-- <app-subscriber-card></app-subscriber-card> -->
+
+<div class="mt20 to-subscribers">
+    <a [routerLink]="['/subscriber']" class="to-subscribers-link medium-text">Все подписчики</a>
+    <svg icon="arrow" class="to-subscribers-icon"></svg>
+</div>

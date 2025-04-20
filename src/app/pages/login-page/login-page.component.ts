@@ -17,15 +17,19 @@ export class LoginPageComponent {
   isPasswordVisible = signal<boolean>(false)
 
   form  = new FormGroup({
-    username: new FormControl<string | null>(null, Validators.required),
-    password: new FormControl<string | null>(null, Validators.required)
+    username: new FormControl<string >("", Validators.required),
+    password: new FormControl<string >("", Validators.required)
   })
 
   onSubmit() {
     // this.isPasswordVisible.set(true)
     if (this.form.valid) {
-      //@ts-ignore
-      this.authService.login(this.form.value)
+      const {username, password} = this.form.value
+      const loginData = {
+        username: username ?? "",
+        password: password ?? ""
+      }
+      this.authService.login(loginData)
         .subscribe(res => {
           this.router.navigate( [''])
           console.log(res);
