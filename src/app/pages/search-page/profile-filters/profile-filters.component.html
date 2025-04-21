@@ -1,17 +1,18 @@
-<app-profile-header>
-</app-profile-header>
-
-<form class="profile-form__wrapper" [formGroup]="form">
+<form class="profile-search-form" [formGroup]="searchForm">
     <div class="profile-form">
         <div class="two-columns">
             <label class="tt-form-label">
-                <span class="tt-form-label__text">Имя</span>
+                <span class="tt-form-label__text">Имя пользователя</span>
                 <input type="text" class="tt-form-input" formControlName="firstName">
+            </label>
+            <label class="tt-form-label">
+                <span class="tt-form-label__text">Фамилия</span>
+                <input type="text" class="tt-form-input" formControlName="lastName">
             </label>
 
             <label class="tt-form-label">
-                <span class="tt-form-label__text">Имя</span>
-                <input type="text" class="tt-form-input" formControlName="lastName">
+                <span class="tt-form-label__text">Навыки</span>
+                <input type="text" class="tt-form-input" formControlName="stack">
             </label>
 
         </div>
@@ -25,23 +26,5 @@
             <span class="tt-form-label__text">О себе</span>
             <textarea name="" id="" formControlName="description" class="tt-form-input tt-textarea"></textarea>
         </label>
-
-        <label class="tt-form-label">
-            <span class="tt-form-label__text">Аватар</span>
-            <app-avatar-upload>
-    
-            </app-avatar-upload>
-        </label>
-
-        <label class="tt-form-label">
-            <span class="tt-form-label__text">Навыки</span>
-            <input type="text" class="tt-form-input" formControlName="stack">
-        </label>
-    </div>
-
-    <div>
-        <div>
-            <button class="btn" (click)="onSave()">Сохранить</button>
-        </div>
     </div>
 </form>
